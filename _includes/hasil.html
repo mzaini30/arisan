@@ -1,0 +1,13 @@
+<template id="hasil">
+	<div>
+		<h1>Yang dapat arisan...</h1>
+		<ol>
+			<li v-for='x in $store.state.output'>{% raw %}{{ x }}{% endraw %}</li>
+		</ol>
+	</div>
+</template>
+<script type="text/javascript">
+	hasil = {
+		template: '#hasil'
+	}
+</script>

@@ -1,0 +1,35 @@
+<template id="beranda">
+	<div>
+		<br>
+		<form @submit.prevent='ubah_hasil()'>
+			<div class="form-group"><label for="">List nama</label><textarea name="" id="" cols="30" rows="10" class="form-control tinggi" required="" :style='{height: tinggi + "px"}' v-model='nama'></textarea></div>
+			<div class="form-group"><input type="submit" class="btn btn-primary" value="Guncang!"></div>
+		</form>
+	</div>
+</template>
+<script type="text/javascript">
+	beranda = {
+		template: '#beranda',
+		data(){
+			return {
+				tinggi: 100,
+				nama: ''
+			}
+		},
+		methods: {
+			ubah_tinggi(){
+				this.tinggi = window.innerHeight - 110
+			},
+			ubah_hasil(){
+				this.$store.commit('ubah', this.nama)
+				this.$router.push('/hasil')
+			}
+		},
+		created(){
+			window.addEventListener('resize', this.ubah_tinggi)
+		},
+		mounted(){
+			this.ubah_tinggi()
+		}
+	}
+</script>
